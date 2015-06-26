@@ -10,6 +10,7 @@ function displayBoard(board) {
 		for(var j=0; j < board.grid[i].length; j++) {
 			$cell = $("<div class='cell'></div>");
 			$cell.attr("id", "cell-" + board.grid[i][j].row + "-" + board.grid[i][j].col);
+			board.grid[i][j].accessible ? $cell.addClass("cell-accessible") : $cell.addClass("cell-inaccessible");
 			$cell.appendTo($row);	
 		}
 		$row.appendTo($board);

@@ -42,3 +42,11 @@
 	width: 70px;
 	margin: 0px;
 }
+
+.cell-accessible {
+	background-color: beige;
+}
+
+.cell-inaccessible {
+	background-color: slategray;
+}

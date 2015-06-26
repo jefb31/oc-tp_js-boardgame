@@ -1,7 +1,7 @@
 // JavaScript Document
-function Cell(rowIndex, colIndex, isAccessible) {
+function Cell(rowIndex, colIndex, probAccessibility) {
 	"use strict";
 	this.row = rowIndex;
 	this.col = colIndex;
-	this.accessible = isAccessible;
+	this.accessible = Math.random() < probAccessibility ? true : false;
 }
