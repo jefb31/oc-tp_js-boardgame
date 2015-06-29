@@ -20,7 +20,7 @@ function displayBoard(board) {
 function displayWeapon(weapon) {
 	if (weapon.position === 0) {
 	} else if ((typeof weapon.position === "string") && weapon.position.startsWith("player")) {
-		
+		$("#" + weapon.position + "-controls .player-weapon-icon").addClass("cell-weapon" + weapon.id);
 	} else {
 		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).addClass("cell-weapon" + weapon.id);
 	}

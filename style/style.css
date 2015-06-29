@@ -20,6 +20,14 @@
 	float: right;
 }
 
+.player-name {
+	text-align: center;	
+}
+
+.player-weapon {
+	text-align: left;
+}
+
 #game-controls {
 	width: 1000px;
 	height: 200px;
@@ -34,7 +42,7 @@
 	margin: 0px;
 }
 
-.cell {
+.cell, .player-weapon-icon {
 	display:inline-block;
 	box-sizing:border-box;
 	border: solid #000000 2px;
