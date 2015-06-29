@@ -59,6 +59,10 @@
 	background-color: slategray;
 }
 
+.cell-movement {
+	border-color: red;	
+}
+
 .cell-player1 {
 	background-color: red;
 }

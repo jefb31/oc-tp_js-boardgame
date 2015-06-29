@@ -31,8 +31,13 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	this.nextTurn = function() {
 		if (this.continueMovementPhase === true) {
 			var movementOptions = this.board.checkPlayerMovementOptions(this.currentPlayer.position, this.currentPlayer.movement);
+			if (movementOptions.length > 0) {
+				setupMovementOptions(movementOptions);
+			} else {
+				// Game Over	
+			}
 		} else {
-			
+			// Combat Phase
 		}
 	};
 };

@@ -60,3 +60,12 @@ function displayPlayer(player) {
 	}
 	$("#cell-" + player.position[0] + "-" + player.position[1]).addClass("cell-player" + player.id);
 }
+
+function toggleMovement(movement) {
+	"use strict";
+	if ($("#cell-" + movement[0] + "-" + movement[1]).hasClass("cell-movement")) {
+		$("#cell-" + movement[0] + "-" + movement[1]).removeClass("cell-movement");
+	} else {
+		$("#cell-" + movement[0] + "-" + movement[1]).addClass("cell-movement");
+	}
+}

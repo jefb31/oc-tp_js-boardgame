@@ -1,5 +1,6 @@
 // JavaScript Document
 var currentGame;
+var currentMovements;
 
 function playGame() {
 	"use strict";
@@ -7,6 +8,13 @@ function playGame() {
 	displayGame(currentGame);
 
 	currentGame.nextTurn();	
+}
+
+function setupMovementOptions(movementOptions) {
+	currentMovements = movementOptions;
+	for (option in currentMovements) {
+		toggleMovement(currentMovements[option]);	
+	}
 }
 
 $(document).ready("button[name='playGame']").click(playGame);
