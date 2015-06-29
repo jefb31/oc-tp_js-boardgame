@@ -4,6 +4,8 @@ function Player(name) {
 	this.name = name;
 	this.hp = 100;
 	this.weapon;
-	this.position;
+	this.position = (function() {
+		
+	}();
 	this.movement = 3;
 }

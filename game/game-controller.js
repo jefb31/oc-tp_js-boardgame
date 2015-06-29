@@ -1,10 +1,10 @@
 // JavaScript Document
-var gameBoard;
+var currentGame;
 
 function startNewGame() {
 	"use strict";
-	gameBoard = new Board(10,10,0.9);
-	displayBoard(gameBoard);	
+	currentGame = new Game(10,10,0.9);
+	displayBoard(currentGame.board);	
 }
 
 $(document).ready("button[name='newGame']").click(startNewGame);
