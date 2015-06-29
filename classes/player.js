@@ -1,9 +1,9 @@
 // JavaScript Document
-function Player(id, board) {
+function Player(id, weapon, board) {
 	"use strict";
 	this.id = id;
 	this.hp = 100;
-	this.weapon;
+	this.weapon = weapon;
 	this.lastPosition = 0;
 	this.position = (function(id, last, board) {
 		var rndPos, suitable = false;

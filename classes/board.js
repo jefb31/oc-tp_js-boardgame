@@ -14,12 +14,24 @@ function Board(height, width, probAccessibility) {
 		return grid;
 	})(height, width);
 	
+	this.isSuitableForWeapon = function(pos) {
+		if((this.grid[pos[0]][pos[1]].weaponOnCell > 0) || (this.grid[pos[0]][pos[1]].playerOnCell > 0) || (this.grid[pos[0]][pos[1]].accessible === false)) {
+			return false;
+		} else {
+			return true;
+		}
+	};
+	
 	this.isSuitableForPlayer = function(pos) {
 		if((this.grid[pos[0]][pos[1]].triggerCombat === true) || (this.grid[pos[0]][pos[1]].weaponOnCell > 0) || (this.grid[pos[0]][pos[1]].playerOnCell > 0) || (this.grid[pos[0]][pos[1]].accessible === false)) {
 			return false;
 		} else {
 			return true;
 		}
+	};
+	
+	this.putWeaponOnBoard = function(id, pos) {
+		this.grid[pos[0]][pos[1]].weaponOnCell = id;	
 	};
 	
 	this.movePlayerOnBoard = function(id, lastPos, newPos) {
