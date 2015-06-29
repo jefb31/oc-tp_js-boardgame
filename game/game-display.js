@@ -17,6 +17,15 @@ function displayBoard(board) {
 	}
 }
 
+function displayWeapon(weapon) {
+	if (weapon.position === 0) {
+	} else if ((typeof weapon.position === "string") && weapon.position.startsWith("player")) {
+		
+	} else {
+		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).addClass("cell-weapon" + weapon.id);
+	}
+}
+
 function displayPlayer(player) {
 	"use strict";
 	var $board = $("#board");

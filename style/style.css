@@ -58,3 +58,27 @@
 .cell-player2 {
 	background-color: blue;
 }
+
+.cell-weapon1 {
+	background-color: crimson;
+}
+
+.cell-weapon2 {
+	background-color: deepskyblue;
+}
+
+.cell-weapon3 {
+	background-color: limegreen;
+}
+
+.cell-weapon4 {
+	background-color: orchid;
+}
+
+.cell-weapon5 {
+	background-color: tomato;
+}
+
+.cell-weapon6 {
+	background-color: gold;
+}
