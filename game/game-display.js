@@ -18,10 +18,23 @@ function displayBoard(board) {
 }
 
 function displayWeapon(weapon) {
+	var classList;
 	if (weapon.position === 0) {
 	} else if ((typeof weapon.position === "string") && weapon.position.startsWith("player")) {
+		classList = $("#" + weapon.position + "-controls .player-weapon-icon").attr("class").split(/\s+/);
+		$.each(classList, function(index, item){
+    		if (item !== "player-weapon-icon") {
+       			$("#" + weapon.position + "-controls .player-weapon-icon").removeClass(item);
+    		}
+		});
 		$("#" + weapon.position + "-controls .player-weapon-icon").addClass("cell-weapon" + weapon.id);
 	} else {
+		classList = $("#cell-" + weapon.position[0] + "-" + weapon.position[1]).attr("class").split(/\s+/);
+		$.each(classList, function(index, item){
+    		if ((item !== "cell") || (item !== "cell-accessible") || (item !== "cell-inaccessible") || (item.startsWith("cell-player"))) {
+       	//		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).removeClass(item);
+    		}
+		});
 		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).addClass("cell-weapon" + weapon.id);
 	}
 }
