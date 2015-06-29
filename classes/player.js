@@ -15,4 +15,8 @@ function Player(id, weapon, board) {
 		return rndPos;
 	})(this.id, this.lastPosition, board);
 	this.movement = 3;
+		
+	this.makeMovement = function(newPos) {
+		
+	};
 }
