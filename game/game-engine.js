@@ -45,5 +45,19 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 		var pos = [event.data.row, event.data.col];
 		currentGame.currentPlayer.makeMovement(pos, currentGame.board);
 		unsetMovementOptions();
+		
+		if (currentGame.board.grid[currentGame.currentPlayer.position[0]][currentGame.currentPlayer.position[1]].triggerCombat === true) {
+			currentGame.continueMovementPhase = false;	
+		} else {
+			currentGame.continueMovementPhase = true;
+		}
+		
+		if(currentGame.currentPlayer.id === currentGame.players.length) {
+			currentGame.currentPlayer = currentGame.players[0];
+		} else {
+			currentGame.currentPlayer = currentGame.players[currentGame.currentPlayer.id];
+		}
+		
+		currentGame.nextMovementTurn();
 	};
 };
