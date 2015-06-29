@@ -7,7 +7,7 @@ function playGame() {
 	currentGame = new Game(10,10,0.9,0.75,4);
 	displayGame(currentGame);
 
-	currentGame.nextTurn();	
+	currentGame.nextMovementTurn();	
 }
 
 function setupMovementOptions(movementOptions) {
@@ -17,4 +17,4 @@ function setupMovementOptions(movementOptions) {
 	}
 }
 
-$(document).ready("button[name='playGame']").click(playGame);
+$("button[name='playGame']").click(playGame);

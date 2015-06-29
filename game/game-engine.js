@@ -28,7 +28,7 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	
 	this.currentPlayer = this.players[0];
 	this.continueMovementPhase = true;
-	this.nextTurn = function() {
+	this.nextMovementTurn = function() {
 		if (this.continueMovementPhase === true) {
 			var movementOptions = this.board.checkPlayerMovementOptions(this.currentPlayer.position, this.currentPlayer.movement);
 			if (movementOptions.length > 0) {
