@@ -4,14 +4,15 @@ function Player(id, board) {
 	this.id = id;
 	this.hp = 100;
 	this.weapon;
-	this.position = (function(id, board) {
+	this.lastPosition = 0;
+	this.position = (function(id, last, board) {
 		var rndPos, suitable = false;
 		while (suitable === false) {
 			rndPos = [Math.floor(Math.random()*board.height), Math.floor(Math.random()*board.width)];
 			suitable = board.isSuitableForPlayer(rndPos);	
 		}
-		board.movePlayerOnBoard(id, 0, rndPos);
+		board.movePlayerOnBoard(id, last, rndPos);
 		return rndPos;
-	})(id, board);
+	})(this.id, this.lastPosition, board);
 	this.movement = 3;
 }

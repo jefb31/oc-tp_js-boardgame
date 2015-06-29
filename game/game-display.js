@@ -16,3 +16,12 @@ function displayBoard(board) {
 		$row.appendTo($board);
 	}
 }
+
+function displayPlayer(player) {
+	"use strict";
+	var $board = $("#board");
+	if (player.lastPosition !== 0) {
+		$("#cell-" + player.lastPosition[0] + "-" + player.lastPosition[1]).removeClass("cell-player" + player.id);	
+	}
+	$("#cell-" + player.position[0] + "-" + player.position[1]).addClass("cell-player" + player.id);
+}

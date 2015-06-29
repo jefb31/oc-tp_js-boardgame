@@ -16,7 +16,7 @@ function Board(height, width, probAccessibility) {
 	
 	this.isSuitableForPlayer = function(pos) {
 		if((this.grid[pos[0]][pos[1]].triggerCombat === true) || (this.grid[pos[0]][pos[1]].weaponOnCell > 0) || (this.grid[pos[0]][pos[1]].playerOnCell > 0) || (this.grid[pos[0]][pos[1]].accessible === false)) {
-			return false;	
+			return false;
 		} else {
 			return true;
 		}

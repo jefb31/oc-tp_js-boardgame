@@ -50,3 +50,11 @@
 .cell-inaccessible {
 	background-color: slategray;
 }
+
+.cell-player1 {
+	background-color: red;
+}
+
+.cell-player2 {
+	background-color: blue;
+}
