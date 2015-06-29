@@ -1,4 +1,17 @@
 // JavaScript Document
+
+function displayGame(game) {
+	displayBoard(game.board);
+	
+	for (var player in game.players) {
+		displayPlayer(game.players[player]);	
+	}
+	
+	for (var weapon in game.weapons) {
+		displayWeapon(game.weapons[weapon]);
+	}	
+}
+
 function displayBoard(board) {
 	"use strict";
 	var $board = $("#board");
