@@ -13,8 +13,18 @@ function playGame() {
 function setupMovementOptions(movementOptions) {
 	currentMovements = movementOptions;
 	for (option in currentMovements) {
-		toggleMovement(currentMovements[option]);	
+		$("#cell-" + currentMovements[option][0] + "-" + currentMovements[option][1]).bind("click", {row: currentMovements[option][0], col: currentMovements[option][1]}, currentGame.makeMovementTurn);
+		toggleMovement(currentMovements[option]);
 	}
+}
+
+function unsetMovementOptions(movementOptions) {
+	for (option in currentMovements) {
+		$("#cell-" + currentMovements[option][0] + "-" + currentMovements[option][1]).unbind("click");
+		toggleMovement(currentMovements[option]);
+	}
+	displayPlayer(currentGame.currentPlayer);
+	movementOptions = null;
 }
 
 $("button[name='playGame']").click(playGame);

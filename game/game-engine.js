@@ -40,4 +40,10 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 			// Combat Phase
 		}
 	};
+	
+	this.makeMovementTurn = function (event) {
+		var pos = [event.data.row, event.data.col];
+		currentGame.currentPlayer.makeMovement(pos, currentGame.board);
+		unsetMovementOptions();
+	};
 };
