@@ -104,9 +104,13 @@
 }
 
 .cell-player1 {
-	background-color: red;
+	background-image:url(../images/player-red.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-player2 {
-	background-color: blue;
+	background-image:url(../images/player-blue.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
