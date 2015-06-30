@@ -4,7 +4,8 @@ function displayGame(game) {
 	displayBoard(game.board);
 	
 	for (var player in game.players) {
-		displayPlayer(game.players[player]);	
+		displayPlayer(game.players[player]);
+		displayHP(game.players[player]);
 	}
 	
 	for (var weapon in game.weapons) {
@@ -57,11 +58,15 @@ function displayWeapon(weapon) {
 
 function displayPlayer(player) {
 	"use strict";
-	var $board = $("#board");
 	if (player.lastPosition !== 0) {
 		$("#cell-" + player.lastPosition[0] + "-" + player.lastPosition[1]).removeClass("cell-player" + player.id);	
 	}
 	$("#cell-" + player.position[0] + "-" + player.position[1]).addClass("cell-player" + player.id);
+}
+
+function displayHP(player) {
+	"use strict";
+	$("#player" + player.id + "-controls .player-hp").html(player.hp + "/100 PV");
 }
 
 function toggleMovement(movement) {

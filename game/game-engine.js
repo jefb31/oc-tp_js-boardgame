@@ -47,6 +47,13 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	
 	this.currentPlayer = this.players[0];
 	this.continueMovementPhase = true;
+	this.getNextPlayer = function() {
+		if(this.currentPlayer.id === this.players.length) {
+			return this.players[0];
+		} else {
+			return this.players[this.currentPlayer.id];
+		}
+	};
 	this.setNextPlayer = function() {
 		if(this.currentPlayer.id === this.players.length) {
 			this.currentPlayer = this.players[0];
@@ -96,8 +103,12 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	}
 	this.makeCombatTurn = function(event) {
 		var option = event.data.option;
+		unsetCombatOptions();
 		if (option === "atk") {
+			var ennemy = currentGame.getNextPlayer();
 			currentGame.currentPlayer.defensePosture = false;
+			ennemy.takeDamages(currentGame.currentPlayer.weapon.damages);
+			displayHP(ennemy);
 		} else if (option === "def") {
 			currentGame.currentPlayer.defensePosture = true;
 		}
