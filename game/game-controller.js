@@ -18,6 +18,11 @@ function setupMovementOptions(movementOptions) {
 	}
 }
 
+function setupCombatOptions() {
+	$("button[name='attack']").bind("click", {option: "atk"}, currentGame.makeCombatTurn);
+	$("button[name='defense']").bind("click", {option: "def"}, currentGame.makeCombatTurn);
+}
+
 function unsetMovementOptions(movementOptions) {
 	for (option in currentMovements) {
 		$("#cell-" + currentMovements[option][0] + "-" + currentMovements[option][1]).unbind("click");
@@ -25,6 +30,11 @@ function unsetMovementOptions(movementOptions) {
 	}
 	displayPlayer(currentGame.currentPlayer);
 	movementOptions = null;
+}
+
+function unsetCombatOptions() {
+	$("button[name='attack']").unbind("click");
+	$("button[name='defense']").unbind("click");
 }
 
 $("button[name='playGame']").click(playGame);

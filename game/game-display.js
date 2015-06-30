@@ -41,6 +41,7 @@ function displayWeapon(weapon) {
     		}
 		});
 		$("#" + weapon.position + "-controls .player-weapon-icon").addClass("cell-weapon" + weapon.id);
+		$("#" + weapon.position + "-controls .player-weapon-specs").html(weapon.name + "<br>Dégâts : " + weapon.damages);
 	} else {
 		classList = $("#cell-" + weapon.position[0] + "-" + weapon.position[1]).attr("class").split(/\s+/);
 		$.each(classList, function(index, item){

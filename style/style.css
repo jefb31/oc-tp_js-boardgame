@@ -36,6 +36,11 @@
 	clear: both;
 }
 
+#combat-buttons button {
+	width: 150px;
+	height: 150px;	
+}
+
 .row {
 	width: 700px;
 	height: 70px;

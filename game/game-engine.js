@@ -51,6 +51,15 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	
 	this.currentPlayer = this.players[0];
 	this.continueMovementPhase = true;
+	
+	this.setNextPlayer = function() {
+		if(this.currentPlayer.id === this.players.length) {
+			this.currentPlayer = this.players[0];
+		} else {
+			this.currentPlayer = this.players[this.currentPlayer.id];
+		}
+	};
+	
 	this.nextMovementTurn = function() {
 		if (this.continueMovementPhase === true) {
 			var movementOptions = this.board.checkPlayerMovementOptions(this.currentPlayer.position, this.currentPlayer.movement);
@@ -60,7 +69,7 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 				// Game Over	
 			}
 		} else {
-			// Combat Phase
+			this.nextCombatTurn();
 		}
 	};
 	
@@ -80,12 +89,16 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 			currentGame.continueMovementPhase = true;
 		}
 		
-		if(currentGame.currentPlayer.id === currentGame.players.length) {
-			currentGame.currentPlayer = currentGame.players[0];
-		} else {
-			currentGame.currentPlayer = currentGame.players[currentGame.currentPlayer.id];
-		}
-		
+		currentGame.setNextPlayer();
 		currentGame.nextMovementTurn();
 	};
+	
+	this.nextCombatTurn = function() {
+		setupCombatOptions();
+	}
+	
+	this.makeCombatTurn = function(event) {
+		var option = event.data.option;
+		
+	}
 };
