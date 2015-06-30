@@ -7,28 +7,21 @@
     </head>
     
     <body>
-        <div id="player1-controls" class="player-controls">
-        	<div class="player-name"><h1>Joueur 1</h1></div>
-            <div class="player-hp"></div>
-            <div class="player-weapon">
-            	<div class="player-weapon-icon"></div>
-                <div class="player-weapon-specs"></div>
-            </div>
-        </div>
         
-        <div id="player2-controls" class="player-controls">
-        	<div class="player-name"><h1>Joueur 2</h1></div>
-            <div class="player-hp"></div>
-            <div class="player-weapon">
-            	<div class="player-weapon-icon"></div>
-                <div class="player-weapon-specs"></div>
-            </div>
-        </div>
-    
         <div id="board">
         </div>
             
         <div id="game-controls">
+            <div id="player1-controls" class="player-controls">
+                <div class="player-name"><h1>Joueur 1</h1></div>
+                <div class="player-status">
+                    <div class="player-weapon-icon"></div>
+                    <div class="player-text-info">
+                        <div class="player-hp"></div>
+                        <div class="player-weapon-specs"></div>
+                    </div>
+                </div>
+            </div>
         	<div id="control-buttons">
         		<button type="button" name="playGame">Nouvelle Partie</button>
             </div>
@@ -36,6 +29,16 @@
                 <button type="button" name="attack">Attaquer</button>
                 <button type="button" name="defense">Défendre</button>
             </div>
+            <div id="player2-controls" class="player-controls">
+        	<div class="player-name"><h1>Joueur 2</h1></div>
+            <div class="player-status">
+            	<div class="player-weapon-icon"></div>
+                <div class="player-text-info">
+                        <div class="player-hp"></div>
+                        <div class="player-weapon-specs"></div>
+                    </div>
+            </div>
+        </div>
         </div>
         
         <!--Librairie jQuery & Polyfills-->

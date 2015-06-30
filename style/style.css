@@ -9,56 +9,13 @@
 	background-color: white;
 }
 
-.player-controls {
-	width: 250px;
-	height: 500px;
-	text-align: center;
-}
-
-#player1-controls {
-	float: left;
-}
-
-#player2-controls {
-	float: right;
-}
-
-.player-weapon {
-	text-align: left;
-}
-
-#game-controls {
-	width: 700px;
-	height: 190px;
-	text-align: center;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	clear: both;
-}
-
-#control-buttons {
-	width: 200px;
-	display: inline-block;	
-}
-
-#combat-buttons {
-	width: 480px;
-	display: inline-block;	
-}
-
-#combat-buttons button {
-	width: 150px;
-	height: 150px;	
-}
-
 .row {
 	width: 700px;
 	height: 70px;
 	margin: 0px;
 }
 
-.cell, .player-weapon-icon {
+.cell {
 	display:inline-block;
 	box-sizing:border-box;
 	border: solid #000000 2px;
@@ -77,6 +34,84 @@
 
 .cell-movement {
 	background-color: #FFF561;	
+}
+
+#game-controls {
+	width: 1100px;
+	height: 200px;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.player-controls {
+	width: 250px;
+	height: 150px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+.player-name {
+	width: 220px;
+	height: 50px;
+	text-align: center;
+	margin: 0px 15px 0px 15px;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+
+.player-status {
+	width: 250px;
+	height: 75px;
+	margin: 0px;
+	text-align: left;
+}
+
+.player-weapon-icon {
+	display:inline-block;
+	vertical-align: top;
+	box-sizing:border-box;
+	border: solid #000000 1px;
+	height: 70px;
+	width: 70px;
+	margin: 0px;
+}
+
+.player-text-info {
+	display: inline-block;
+	vertical-align: top;
+	width: 175px;
+	height: 70px;
+	margin: 0px;
+}
+
+.player-hp {
+	height: 20px;
+	margin: 0px 0px 5px 2px;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;	
+}
+
+.player-weapon-specs {
+	height: 45px;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;	
+}
+
+#control-buttons {
+	width: 100px;
+	display: inline-block;
+	vertical-align:central;	
+}
+
+#combat-buttons {
+	width: 390px;
+	display: inline-block;
+	vertical-align: top;	
+}
+
+#combat-buttons button {
+	width: 150px;
+	height: 150px;	
 }
 
 .cell-weapon1 {
