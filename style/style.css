@@ -76,40 +76,54 @@
 }
 
 .cell-movement {
-	border-color: red;	
+	background-color: #FFF561;	
 }
 
 .cell-weapon1 {
-	background-color: crimson;
+	background-image:url(../images/weapon-1.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-weapon2 {
-	background-color: deepskyblue;
+	background-image:url(../images/weapon-2.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-weapon3 {
-	background-color: limegreen;
+	background-image:url(../images/weapon-3.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-weapon4 {
-	background-color: orchid;
+	background-image:url(../images/weapon-4.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-weapon5 {
-	background-color: tomato;
+	background-image:url(../images/weapon-5.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-weapon6 {
-	background-color: gold;
+	background-image:url(../images/weapon-6.png);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 .cell-player1 {
+	background-color:#FFF7A3;
 	background-image:url(../images/player-red.png);
 	background-repeat:no-repeat;
 	background-position:center;
 }
 
 .cell-player2 {
+	background-color:#FFF7A3;
 	background-image:url(../images/player-blue.png);
 	background-repeat:no-repeat;
 	background-position:center;
