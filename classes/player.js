@@ -21,4 +21,28 @@ function Player(id, weapon, board) {
 		board.movePlayerOnBoard(this.id, this.lastPosition, newPos);
 		this.position = newPos;
 	};
+	
+	this.lastMovementCells = function() {
+		var lastMovement = new Array(new Array()), deltaRow, deltaCol;
+		deltaRow = this.position[0] - this.lastPosition[0];
+		deltaCol = this.position[1] - this.lastPosition[1];
+		if(deltaRow > 0) {
+			for (var right = 1; right <= deltaRow; right += 1) {
+				lastMovement[right - 1] = [this.lastPosition[0] + right, this.lastPosition[1]];	
+			}
+		} else if (deltaRow < 0) {
+			for (var left = 1; left <= Math.abs(deltaRow); left += 1) {
+				lastMovement[left - 1] = [this.lastPosition[0] - left, this.lastPosition[1]];	
+			}
+		} else if (deltaCol > 0) {
+			for (var bottom = 1; bottom <= deltaCol; bottom += 1) {
+				lastMovement[bottom - 1] = [this.lastPosition[0], this.lastPosition[1] + bottom];	
+			}
+		} else if (deltaCol < 0) {
+			for (var top = 1; top <= Math.abs(deltaCol); top += 1) {
+				lastMovement[top - 1] = [this.lastPosition[0], this.lastPosition[1] - top];	
+			}
+		}
+		return lastMovement;
+	};
 }

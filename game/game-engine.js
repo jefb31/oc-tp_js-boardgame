@@ -26,6 +26,29 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	
 	this.weapons = baseWeapons.concat(bonusWeapons);
 	
+	this.switchPlayerWeapon = function(pos, player) {
+		var oldWeaponId = player.weapon.id;
+		var newWeaponId = this.board.grid[pos[0]][pos[1]].weaponOnCell;
+		if(newWeaponId > 0) {
+			var oldWeapon, newWeapon;
+			for (var i = 0; i < this.weapons.length; i += 1) {
+				if(this.weapons[i].id === oldWeaponId) {
+					oldWeapon = this.weapons[i];	
+				} else if(this.weapons[i].id === newWeaponId) {
+					newWeapon = this.weapons[i];	
+				}
+			}
+			
+			newWeapon.position = "player" + player.id;
+			oldWeapon.position = pos;
+			this.board.grid[pos[0]][pos[1]].weaponOnCell = oldWeaponId;
+			player.weapon = newWeapon;
+			
+			displayWeapon(oldWeapon);
+			displayWeapon(newWeapon);
+		}
+	};
+	
 	this.currentPlayer = this.players[0];
 	this.continueMovementPhase = true;
 	this.nextMovementTurn = function() {
@@ -41,10 +64,15 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 		}
 	};
 	
-	this.makeMovementTurn = function (event) {
+	this.makeMovementTurn = function(event) {
 		var pos = [event.data.row, event.data.col];
 		currentGame.currentPlayer.makeMovement(pos, currentGame.board);
 		unsetMovementOptions();
+		
+		var weaponSwitchOptions = currentGame.currentPlayer.lastMovementCells();
+		for (option in weaponSwitchOptions) {
+			currentGame.switchPlayerWeapon(weaponSwitchOptions[option], currentGame.currentPlayer);	
+		}
 		
 		if (currentGame.board.grid[currentGame.currentPlayer.position[0]][currentGame.currentPlayer.position[1]].triggerCombat === true) {
 			currentGame.continueMovementPhase = false;	
