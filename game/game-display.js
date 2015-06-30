@@ -44,9 +44,11 @@ function displayWeapon(weapon) {
 	} else {
 		classList = $("#cell-" + weapon.position[0] + "-" + weapon.position[1]).attr("class").split(/\s+/);
 		$.each(classList, function(index, item){
-    		if ((item !== "cell") || (item !== "cell-accessible") || (item !== "cell-inaccessible") || (item.startsWith("cell-player"))) {
-       	//		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).removeClass(item);
-    		}
+    		if ((item === "cell") || (item === "cell-accessible") || (item === "cell-inaccessible") || (item.startsWith("cell-player"))) {
+       			
+    		} else {
+				$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).removeClass(item);
+			}
 		});
 		$("#cell-" + weapon.position[0] + "-" + weapon.position[1]).addClass("cell-weapon" + weapon.id);
 	}
