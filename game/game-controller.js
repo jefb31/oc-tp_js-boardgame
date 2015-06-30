@@ -35,4 +35,7 @@ function unsetCombatOptions() {
 	$("button[name='defense']").unbind("click");
 }
 
-$("button[name='playGame']").click(playGame);
+$(document).ready(function() {
+	$("button[name='playGame']").click(playGame);
+	playGame();
+});
