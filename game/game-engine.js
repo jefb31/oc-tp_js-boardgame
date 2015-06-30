@@ -88,7 +88,7 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	};
 	
 	this.nextCombatTurn = function() {
-		if (currentPlayer.hp > 0) {
+		if (this.currentPlayer.hp > 0) {
 			setupCombatOptions();
 		} else {
 			// Game Over	
