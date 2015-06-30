@@ -79,14 +79,6 @@
 	border-color: red;	
 }
 
-.cell-player1 {
-	background-color: red;
-}
-
-.cell-player2 {
-	background-color: blue;
-}
-
 .cell-weapon1 {
 	background-color: crimson;
 }
@@ -109,4 +101,12 @@
 
 .cell-weapon6 {
 	background-color: gold;
+}
+
+.cell-player1 {
+	background-color: red;
+}
+
+.cell-player2 {
+	background-color: blue;
 }
