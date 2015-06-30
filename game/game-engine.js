@@ -2,20 +2,17 @@
 function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, maxBonusWeapons) {
 	"use strict";
 	this.board = new Board(boardWidth, boardHeight, boardAccessibility);
-	
 	var baseWeapons = [new Weapon(1, "Red Blaster", 10),
 						new Weapon(2, "Blue Laser", 10)]
 	var bonusWeapons = [new Weapon(3, "Petite Aiguille", 5),
 						new Weapon(4, "Grande Martha", 50),
 						new Weapon(5, "Double Laser", 20),
 						new Weapon(6, "Calibre 35", 35)];
-	
 	this.players = [new Player(1, baseWeapons[0], this.board), new Player(2, baseWeapons[1], this.board)];
 			
 	for (var weapon in baseWeapons) {
 		baseWeapons[weapon].initializePositionOnPlayer(this.players[weapon]);
 	}
-	
 	for (var weapon in bonusWeapons) {
 		var nbBonusWeapons = 0;
 		if ((Math.random() < weaponAvailability) && (nbBonusWeapons <= maxBonusWeapons)) {
@@ -25,7 +22,6 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	}
 	
 	this.weapons = baseWeapons.concat(bonusWeapons);
-	
 	this.switchPlayerWeapon = function(pos, player) {
 		var oldWeaponId = player.weapon.id;
 		var newWeaponId = this.board.grid[pos[0]][pos[1]].weaponOnCell;
@@ -51,7 +47,6 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	
 	this.currentPlayer = this.players[0];
 	this.continueMovementPhase = true;
-	
 	this.setNextPlayer = function() {
 		if(this.currentPlayer.id === this.players.length) {
 			this.currentPlayer = this.players[0];
@@ -72,7 +67,6 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 			this.nextCombatTurn();
 		}
 	};
-	
 	this.makeMovementTurn = function(event) {
 		var pos = [event.data.row, event.data.col];
 		currentGame.currentPlayer.makeMovement(pos, currentGame.board);
@@ -94,11 +88,21 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 	};
 	
 	this.nextCombatTurn = function() {
-		setupCombatOptions();
+		if (currentPlayer.hp > 0) {
+			setupCombatOptions();
+		} else {
+			// Game Over	
+		}
 	}
-	
 	this.makeCombatTurn = function(event) {
 		var option = event.data.option;
+		if (option === "atk") {
+			currentGame.currentPlayer.defensePosture = false;
+		} else if (option === "def") {
+			currentGame.currentPlayer.defensePosture = true;
+		}
 		
+		currentGame.setNextPlayer();
+		currentGame.nextCombatTurn();
 	}
 };

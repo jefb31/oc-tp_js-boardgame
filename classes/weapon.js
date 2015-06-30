@@ -9,7 +9,6 @@ function Weapon(id, name, damages) {
 	this.initializePositionOnPlayer = function(player) {
 		this.position = "player" + player.id;
 	};
-	
 	this.initializePositionOnBoard = function(board) {
 		var rndPos, suitable = false;
 		while (suitable === false) {

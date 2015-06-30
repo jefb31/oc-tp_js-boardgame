@@ -15,13 +15,13 @@ function Player(id, weapon, board) {
 		return rndPos;
 	})(this.id, this.lastPosition, board);
 	this.movement = 3;
+	this.defensePosture = false;
 		
 	this.makeMovement = function(newPos, board) {
 		this.lastPosition = this.position;
 		board.movePlayerOnBoard(this.id, this.lastPosition, newPos);
 		this.position = newPos;
 	};
-	
 	this.lastMovementCells = function() {
 		var lastMovement = new Array(new Array()), deltaRow, deltaCol;
 		deltaRow = this.position[0] - this.lastPosition[0];
@@ -45,4 +45,12 @@ function Player(id, weapon, board) {
 		}
 		return lastMovement;
 	};
+	
+	this.takeDamages = function(damages) {
+		if(this.defensePosture === true) {
+			this.hp -= (damages / 2);	
+		} else {
+			this.hp -= damages;
+		}	
+	}
 }
