@@ -68,7 +68,7 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 			if (movementOptions.length > 0) {
 				setupMovementOptions(movementOptions);
 			} else {
-				// Game Over	
+				this.endGame();	
 			}
 		} else {
 			this.nextCombatTurn();
@@ -98,7 +98,7 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 		if (this.currentPlayer.hp > 0) {
 			setupCombatOptions();
 		} else {
-			// Game Over	
+			this.endGame();	
 		}
 	}
 	this.makeCombatTurn = function(event) {
@@ -116,4 +116,9 @@ function Game(boardWidth, boardHeight, boardAccessibility, weaponAvailability, m
 		currentGame.setNextPlayer();
 		currentGame.nextCombatTurn();
 	}
+	
+	this.endGame = function() {
+		var winner = this.getNextPlayer().id;
+		alert("Victoire du Joueur " + winner + " !");
+	};
 };
